@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='CSS/style.css')}}">
+	<script type="text/javascript" src="{{ url_for('static', filename='js/script.js')}}"></script>
+</head>
+<body>
+{% with messages = get_flashed_messages() %} 
+{% if messages %} 
+{% for message in messages %}
+{{message}}
+{% endfor %} {% endif %} {% endwith %}
+	<form action="/process" method="post">
+		email: <input type="text" name="email">
+		first Name: <input type="text" name="fname">
+		last Name: <input type="text" name="lname">
+		password: <input type="password" name="pword">
+		Confirm: <input type="password" name="cword">
+		<input type="submit" name="submit">
+			</form>
+
+</body>
+</html>
